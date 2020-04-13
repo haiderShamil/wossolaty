@@ -11,6 +11,28 @@ use Symfony\Component\HttpFoundation\Response;
 class CashTypeController extends Controller
 {
     /**
+     * @OA\GET(
+     *     path="/api/cash_types",
+     *      operationId="getCash_TypeList",
+     *     tags={"Cash_Type"},
+     *     summary="Returns API response of all Cash_Type",
+     *     description="A sample test of the API",
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation"
+     *     ),
+     *     
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -21,6 +43,33 @@ class CashTypeController extends Controller
         return Cash_Type::all();
 
     }
+
+    /**
+     * @OA\Post(
+     *      path="/api/cash_types",
+     *      operationId="storeCash_Type",
+     *      tags={"Cash_Type"},
+     *      summary="Store new Cash_Type",
+     *      description="Returns Cash_Type data",
+     *     
+     *      @OA\Response(
+     *          response=201,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
 
     /**
      * Store a newly created resource in storage.
@@ -39,6 +88,42 @@ class CashTypeController extends Controller
     ],Response::HTTP_CREATED);
     }
 
+
+    /**
+     * @OA\Get(
+     *      path="/api/cash_types/{id}",
+     *      operationId="getCash_TypeById",
+     *      tags={"Cash_Type"},
+     *      summary="Get Cash_Type information",
+     *      description="Returns Cash_Type data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Cash_Type id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *      @OA\Response( 
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
+
     /**
      * Display the specified resource.
      *
@@ -56,6 +141,46 @@ class CashTypeController extends Controller
     }
 
     /**
+     * @OA\Put(
+     *      path="/api/cash_types/{id}",
+     *      operationId="updateCash_Type",
+     *      tags={"Cash_Type"},
+     *      summary="Update existing Cash_Type",
+     *      description="Returns updated Cash_Type data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Cash_Type id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      
+     *      @OA\Response(
+     *          response=202,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
+     */
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,6 +194,42 @@ class CashTypeController extends Controller
         $a->update($request->all());
         return $a;
     }
+
+    /**
+     * @OA\Delete(
+     *      path="/api/cash_types/{id}",
+     *      operationId="deleteCash_Type",
+     *      tags={"Cash_Type"},
+     *      summary="Delete existing Cash_Type",
+     *      description="Deletes a record and returns no content",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Cash_Type id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=204,
+     *          description="Successful operation",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
+     */
 
     /**
      * Remove the specified resource from storage.

@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * @OA\Tag(
+ *     name="Product_State",
+ *     description="Sample APIs Everything about your Product_State ",
+ * )
+**/
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;

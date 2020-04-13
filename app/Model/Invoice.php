@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * @OA\Tag(
+ *     name="Invoice",
+ *     description="Sample APIs Everything about your Invoice ",
+ * )
+**/
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;

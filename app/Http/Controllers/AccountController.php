@@ -11,6 +11,29 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AccountController extends Controller
 {
+     /**
+     * @OA\GET(
+     *     path="/api/accounts",
+     *      operationId="getProjectsList",
+     *     tags={"Account"},
+     *     summary="Returns API response of all accounts",
+     *     description="A sample test of the API",
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation"
+     *     ),
+     *     
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
+     
     /**
      * Display a listing of the resource.
      *
@@ -24,6 +47,32 @@ class AccountController extends Controller
         // return AccountResource::collection(Account::all());
     }
 
+    /**
+     * @OA\Post(
+     *      path="/api/accounts",
+     *      operationId="storeAccount",
+     *      tags={"Account"},
+     *      summary="Store new account",
+     *      description="Returns account data",
+     *     
+     *      @OA\Response(
+     *          response=201,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
 
     /**
      * Store a newly created resource in storage.
@@ -48,6 +97,40 @@ class AccountController extends Controller
             'data' => new AccountResource($account)
     ],Response::HTTP_CREATED);
     }
+    /**
+     * @OA\Get(
+     *      path="/api/accounts/{id}",
+     *      operationId="getAccountById",
+     *      tags={"Account"},
+     *      summary="Get account information",
+     *      description="Returns account data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Account id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *      @OA\Response( 
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
 
     /**
      * Display the specified resource.
@@ -62,6 +145,45 @@ class AccountController extends Controller
         return new AccountResource($account);
     }
 
+     /**
+     * @OA\Put(
+     *      path="/api/accounts/{id}",
+     *      operationId="updateAccount",
+     *      tags={"Account"},
+     *      summary="Update existing account",
+     *      description="Returns updated account data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Project id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      
+     *      @OA\Response(
+     *          response=202,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
+     */
 
     /**
      * Update the specified resource in storage.
@@ -78,6 +200,43 @@ class AccountController extends Controller
             'data' => new AccountResource($account)
     ],Response::HTTP_CREATED);
     }
+
+     /**
+     * @OA\Delete(
+     *      path="/api/accounts/{id}",
+     *      operationId="deleteAccount",
+     *      tags={"Account"},
+     *      summary="Delete existing account",
+     *      description="Deletes a record and returns no content",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Project id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=204,
+     *          description="Successful operation",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
+     */
+
 
     /**
      * Remove the specified resource from storage.

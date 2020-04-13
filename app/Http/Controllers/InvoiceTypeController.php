@@ -9,6 +9,30 @@ use App\Http\Requests\Invoice_TypeRequest;
 use Symfony\Component\HttpFoundation\Response;
 class InvoiceTypeController extends Controller
 {
+
+     /**
+     * @OA\GET(
+     *     path="/api/invoice_types",
+     *      operationId="getInvoice_TypeList",
+     *     tags={"Invoice_Type"},
+     *     summary="Returns API response of all Invoice_Type",
+     *     description="A sample test of the API",
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation"
+     *     ),
+     *     
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
+
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +44,33 @@ class InvoiceTypeController extends Controller
         return Invoice_Type::all();
 
     }
+
+     /**
+     * @OA\Post(
+     *      path="/api/invoice_types",
+     *      operationId="storeInvoice_Type",
+     *      tags={"Invoice_Type"},
+     *      summary="Store new Invoice_Type",
+     *      description="Returns Invoice_Type data",
+     *     
+     *      @OA\Response(
+     *          response=201,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
 
 
     /**
@@ -40,6 +91,41 @@ class InvoiceTypeController extends Controller
         
     }
 
+     /**
+     * @OA\Get(
+     *      path="/api/invoice_types/{id}",
+     *      operationId="getInvoice_TypeById",
+     *      tags={"Invoice_Type"},
+     *      summary="Get Invoice_Type information",
+     *      description="Returns Invoice_Type data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Invoice_Type id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *      @OA\Response( 
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
+
     /**
      * Display the specified resource.
      *
@@ -55,6 +141,46 @@ class InvoiceTypeController extends Controller
         // return new Invoice_TypeResource($invoice_Type);
     }
 
+     /**
+     * @OA\Put(
+     *      path="/api/invoice_types/{id}",
+     *      operationId="updateInvoice_Type",
+     *      tags={"Invoice_Type"},
+     *      summary="Update existing Invoice_Type",
+     *      description="Returns updated Invoice_Type data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Invoice_Type id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      
+     *      @OA\Response(
+     *          response=202,
+     *          description="Successful operation",
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
+     */
+
     /**
      * Update the specified resource in storage.
      *
@@ -69,6 +195,42 @@ class InvoiceTypeController extends Controller
         $a->update($request->all());
         return ($a);   
     }
+
+    /**
+     * @OA\Delete(
+     *      path="/api/invoice_types/{id}",
+     *      operationId="deleteInvoice_Type",
+     *      tags={"Invoice_Type"},
+     *      summary="Delete existing Invoice_Type",
+     *      description="Deletes a record and returns no content",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Invoice_Type id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=204,
+     *          description="Successful operation",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
+     */
 
     /**
      * Remove the specified resource from storage.

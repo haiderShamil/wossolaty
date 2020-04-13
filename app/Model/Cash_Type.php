@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * @OA\Tag(
+ *     name="Cash_Type",
+ *     description="Sample APIs Everything about your Cash_Type ",
+ * )
+**/
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;

@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * @OA\Tag(
+ *     name="Account",
+ *     description="Sample APIs Everything about your Account ",
+ * )
+**/
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +23,6 @@ class Account extends Model
     }
     public function governorates()
     {
-        return $this->hasMany(Governorate::class); 
+        return $this->hasMany(Governorate::class);  
     }
 }
