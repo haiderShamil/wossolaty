@@ -31,6 +31,11 @@ Route::apiResource('/products','ProductController');
 Route::apiResource('/products_states','ProductStateController');
 Route::get('indexStore/{id}','ProductController@indexStore');
 Route::get('total/{id}','InvoiceController@total');
+Route::post('someproducts','ProductController@someproducts');
+Route::post('sumdepts','AccountController@sumdept');
+Route::post('itemProfits','ProfitController@itemProfits');
+Route::get('listProfits/{id}','ProfitController@listProfits');
+Route::get('allProfits','ProfitController@allProfits');
 
 
 

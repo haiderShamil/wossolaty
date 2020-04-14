@@ -101,16 +101,25 @@ class InvoiceController extends Controller
         $invoice->accountname=$account->name;
         $invoice->productname=$product->name;
 
-        $invoice->price=$product->unit_price;
+        if (invoice_type_id==3) {
+            $invoice->price=$product->unit_price*-1;
+        }
+        else {$invoice->price=$product->unit_price;}
         $invoice->amount=$request->amount;
         if ( $invoice->invoice_type_id == 2)
         $product->qty= ($product->qty-$invoice->amount);
+        elseif ($invoice->invoice_type_id == 3)
+        $product->qty= ($product->qty+$invoice->amount);
+
         if ($product->qty < 0)
         return ('out of order');
-        $invoice->total = ($request->price * $request->amount);
+        $invoice->total = ($invoice->price * $request->amount);
 
         if ($invoice->payment_type_id==2 && $invoice->invoice_type_id == 2)
         $account->sumdept = $account->sumdept +  $invoice->total;
+
+        if ($invoice->payment_type_id==1 && $invoice->invoice_type_id == 3)
+        $account->sumdept = $account->sumdept -  $invoice->total;
 
         $invoice->no = $request->no;
 

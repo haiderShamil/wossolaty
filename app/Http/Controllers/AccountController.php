@@ -250,5 +250,27 @@ class AccountController extends Controller
         $account->delete();
         return ('item is deleted');
     }
+    public function sumdept( Request $request)
+    {
+        if ($request->name == 'pos')
+        {
+            $acc = Account::get()->where('sumdept','>',0);
+            $accp = 0;
+            foreach ($acc as $value)
+            {
+                $accp += $value->sumdept;
+            }
+            return  response()->json( ['sum of dept'=>$accp,'account'=>$acc]);
+        }
+        elseif ($request->name == 'neg') {
+            $acc = Account::get()->where('sumdept','<',0);
+            $accp = 0;
+            foreach ($acc as $value)
+            {
+                $accp += $value->sumdept;
+            }
+            return  response()->json( ['sum of dept'=>$accp,'account'=>$acc]);
+        }
+    }
   
 }

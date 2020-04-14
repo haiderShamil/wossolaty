@@ -303,6 +303,20 @@ class ProductController extends Controller
          $stock = Stock::get()->where('id','like',$id);
          $product = Product::get()->where('stock_id','like',$id);
          return [$stock,$product];
+         return  response()->json( ['stock'=>$stock,'product'=>$product]);
+
+
+    }
+
+    public function someproducts (Request $request)
+    {
+        $product = Product::get()->where('name','like',$request->name);
+        $sum = 0;
+        foreach ($product as $value)
+        {
+            $sum = $sum + $value->qty;
+        }
+        return  response()->json( ['name of product'=>$value->name,'sum'=>$sum]);
 
     }
 }

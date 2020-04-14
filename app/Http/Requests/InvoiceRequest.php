@@ -31,7 +31,7 @@ class InvoiceRequest extends FormRequest
             'product_id' => 'required',
             // 'accountname' => 'required',
             // 'productname' => 'required',
-            'price' => 'required',
+            // 'price' => 'required',
             'amount' => 'required',
             // 'total' => 'required',
             'no'=>'required',
