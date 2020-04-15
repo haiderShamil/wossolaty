@@ -1,14 +1,19 @@
 <?php
-/**
- * @OA\Tag(
- *     name="Product_State",
- *     description="Sample APIs Everything about your Product_State ",
- * )
-**/
+
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
+
+/**
+ * @OA\Schema(
+ *     title="Product_State",
+ *     description="Product_State model",
+ *     @OA\Xml(
+ *         name="Product_State"
+ *     )
+ * )
+ */
 
 class Product_State extends Model
 {

@@ -1,15 +1,19 @@
 <?php
-/**
- * @OA\Tag(
- *     name="Account_Role",
- *     description="Sample APIs Everything about your Account_Role ",
- * )
-**/
+
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
 
+/**
+ * @OA\Schema(
+ *     title="Account_Role",
+ *     description="Account_Role model",
+ *     @OA\Xml(
+ *         name="Account_Role"
+ *     )
+ * )
+ */
 
 class Account_Role extends Model
 {

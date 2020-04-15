@@ -1,14 +1,20 @@
 <?php
-/**
- * @OA\Tag(
- *     name="Invoice_Type",
- *     description="Sample APIs Everything about your Invoice_Type ",
- * )
-**/
+
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
+
+/**
+ * @OA\Schema(
+ *     title="Invoice_Type",
+ *     description="Invoice_Type model",
+ *     @OA\Xml(
+ *         name="Invoice_Type"
+ *     )
+ * )
+ */
+
 
 class Invoice_Type extends Model
 {

@@ -1,14 +1,19 @@
 <?php
-/**
- * @OA\Tag(
- *     name="Stock",
- *     description="Sample APIs Everything about your Stock ",
- * )
-**/
+
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
+
+/**
+ * @OA\Schema(
+ *     title="Stock",
+ *     description="Stock model",
+ *     @OA\Xml(
+ *         name="Stock"
+ *     )
+ * )
+ */
 
 class Stock extends Model
 {

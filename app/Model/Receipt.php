@@ -1,14 +1,19 @@
 <?php
-/**
- * @OA\Tag(
- *     name="Receipt",
- *     description="Sample APIs Everything about your Receipt ",
- * )
-**/
+
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
+
+/**
+ * @OA\Schema(
+ *     title="Receipt",
+ *     description="Receipt model",
+ *     @OA\Xml(
+ *         name="Receipt"
+ *     )
+ * )
+ */
 
 class Receipt extends Model
 {

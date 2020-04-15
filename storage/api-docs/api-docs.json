@@ -3,7 +3,6 @@
     "info": {
         "title": "Wossolaty API Documentation",
         "description": "This is a wossolaty API Documentation",
-        "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "email": "haidershamil@gmail"
         },
@@ -13,6 +12,12 @@
         },
         "version": "1.0.0"
     },
+    "servers": [
+        {
+            "url": "http://my-default-host.com",
+            "description": "Demo API Server"
+        }
+    ],
     "paths": {
         "/api/accounts": {
             "get": {
@@ -1909,14 +1914,109 @@
             }
         }
     },
-    "tags": [
-        {
-            "name": "Account",
-            "description": "Sample APIs Everything about your Account "
+    "components": {
+        "schemas": {
+            "Account": {
+                "title": "Account",
+                "description": "Account model",
+                "xml": {
+                    "name": "Account"
+                }
+            },
+            "Account_Role": {
+                "title": "Account_Role",
+                "description": "Account_Role model",
+                "xml": {
+                    "name": "Account_Role"
+                }
+            },
+            "Cash_Detail": {
+                "title": "Cash_Detail",
+                "description": "Cash_Detail model",
+                "xml": {
+                    "name": "Cash_Detail"
+                }
+            },
+            "Cash_Type": {
+                "title": "Cash_Type",
+                "description": "Cash_Type model",
+                "xml": {
+                    "name": "Cash_Type"
+                }
+            },
+            "Governorate": {
+                "title": "Governorate",
+                "description": "Governorate model",
+                "xml": {
+                    "name": "Governorate"
+                }
+            },
+            "Invoice": {
+                "title": "Invoice",
+                "description": "Invoice model",
+                "xml": {
+                    "name": "Invoice"
+                }
+            },
+            "Invoice_Type": {
+                "title": "Invoice_Type",
+                "description": "Invoice_Type model",
+                "xml": {
+                    "name": "Invoice_Type"
+                }
+            },
+            "Payment_Type": {
+                "title": "Payment_Type",
+                "description": "Payment_Type model",
+                "xml": {
+                    "name": "Payment_Type"
+                }
+            },
+            "Product": {
+                "title": "Product",
+                "description": "Product model",
+                "xml": {
+                    "name": "Product"
+                }
+            },
+            "Product_State": {
+                "title": "Product_State",
+                "description": "Product_State model",
+                "xml": {
+                    "name": "Product_State"
+                }
+            },
+            "Receipt": {
+                "title": "Receipt",
+                "description": "Receipt model",
+                "xml": {
+                    "name": "Receipt"
+                }
+            },
+            "Stock": {
+                "title": "Stock",
+                "description": "Stock model",
+                "xml": {
+                    "name": "Stock"
+                }
+            }
         },
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
         {
             "name": "Account_Role",
             "description": "Sample APIs Everything about your Account_Role "
+        },
+        {
+            "name": "Account",
+            "description": "Sample APIs Everything about your Account "
         },
         {
             "name": "Cash_Detail",
@@ -1931,24 +2031,24 @@
             "description": "Sample APIs Everything about your Governorate "
         },
         {
-            "name": "Invoice",
-            "description": "Sample APIs Everything about your Invoice "
-        },
-        {
             "name": "Invoice_Type",
             "description": "Sample APIs Everything about your Invoice_Type "
+        },
+        {
+            "name": "Invoice",
+            "description": "Sample APIs Everything about your Invoice "
         },
         {
             "name": "Payment_Type",
             "description": "Sample APIs Everything about your Payment_Type "
         },
         {
-            "name": "Product",
-            "description": "Sample APIs Everything about your Product "
-        },
-        {
             "name": "Product_State",
             "description": "Sample APIs Everything about your Product_State "
+        },
+        {
+            "name": "Product",
+            "description": "Sample APIs Everything about your Product "
         },
         {
             "name": "Receipt",

@@ -1,14 +1,19 @@
 <?php
-/**
- * @OA\Tag(
- *     name="Cash_Type",
- *     description="Sample APIs Everything about your Cash_Type ",
- * )
-**/
+
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
+
+/**
+ * @OA\Schema(
+ *     title="Cash_Type",
+ *     description="Cash_Type model",
+ *     @OA\Xml(
+ *         name="Cash_Type"
+ *     )
+ * )
+ */
 
 class Cash_Type extends Model
 {

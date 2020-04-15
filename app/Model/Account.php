@@ -1,17 +1,23 @@
 <?php
-/**
- * @OA\Tag(
- *     name="Account",
- *     description="Sample APIs Everything about your Account ",
- * )
-**/
+
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
 
+/**
+ * @OA\Schema(
+ *     title="Account",
+ *     description="Account model",
+ *     @OA\Xml(
+ *         name="Account"
+ *     )
+ * )
+ */
+
 class Account extends Model
 {
+
     //
     use softDeletes;
     protected $fillable = [

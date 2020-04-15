@@ -1,14 +1,19 @@
 <?php
-/**
- * @OA\Tag(
- *     name="Payment_Type",
- *     description="Sample APIs Everything about your Payment_Type ",
- * )
-**/
+
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
+
+/**
+ * @OA\Schema(
+ *     title="Payment_Type",
+ *     description="Payment_Type model",
+ *     @OA\Xml(
+ *         name="Payment_Type"
+ *     )
+ * )
+ */
 
 class Payment_Type extends Model
 {
